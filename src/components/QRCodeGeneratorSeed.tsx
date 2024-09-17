@@ -29,7 +29,7 @@ export const QRCodeGeneratorSeed: React.FC = () => {
             combinedCanvas.width = canvas.width
             combinedCanvas.height = canvas.height + 50 // Adjust height for text
             context.drawImage(qrCodeImage, 0, 0)
-            context.font = '20px Arial'
+            context.font = '30px "K2D"'; // Set font to K2D
             context.fillStyle = 'red' // Set text color
             context.fillText(description, 10, canvas.height + 30) // Adjust position for text
             const combinedUrl = combinedCanvas.toDataURL('image/png')
