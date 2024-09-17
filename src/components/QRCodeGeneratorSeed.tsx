@@ -75,7 +75,7 @@ export const QRCodeGeneratorSeed: React.FC = () => {
           level={'L'}
           minVersion={7}
           imageSettings={{
-            src: 'https://seedbkkchurch.github.io/qr-code-seed/SEED_CHURCH_LOGO_3.png',
+            src: 'https://seedbkkchurch.github.io/qr-code-seed/SEED_CHURCH_LOGO.png',
             x: undefined,
             y: undefined,
             height: 140,
