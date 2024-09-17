@@ -1,0 +1,47 @@
+---
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+const baseUrl = new URL(Astro.site || '', Astro.url);
+const isProduction = import.meta.env.PROD;
+const basePath = isProduction ? '/GiftFromGod' : ''; // Use base path in production, empty in development
+const faviconUrl = new URL(`${basePath}/SEED_CHURCH_LOGO.png`, baseUrl);
+const ogImageUrl = new URL(`${basePath}/SEED_CHURCH_LOGO.png`, baseUrl);
+---
+
+<html>
+  <head>
+    <title>{title}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href={faviconUrl.href} />
+      <!-- Open Graph Meta Tags -->
+      <meta property="og:title" content="แบบสำรวจของประทาน" />
+      <meta property="og:description" content="แบบสำรวจของประทานที่พระเจ้าให้มา" />
+      <meta property="og:url" content="https://seedbkkchurch.github.io/GiftFromGod/" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content={ogImageUrl.href} />
+      <meta property="og:site_name" content="แบบสำรวจของประทาน" />
+    <style>
+      body {
+        font-family: 'K2D', sans-serif;
+      }
+    </style>
+    </head>
+
+  <body>
+    <slot />
+  </body>
+</html>
