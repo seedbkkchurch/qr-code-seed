@@ -20,6 +20,7 @@ export const QRCodeGeneratorSeed: React.FC = () => {
       if (canvas) {
         const qrCodeUrl = canvas.toDataURL('image/png')
         const qrCodeImage = new Image()
+        qrCodeImage.crossOrigin ="anonymous"
         qrCodeImage.src = qrCodeUrl
         qrCodeImage.onload = () => {
           const combinedCanvas = document.createElement('canvas')
@@ -74,7 +75,7 @@ export const QRCodeGeneratorSeed: React.FC = () => {
           level={'L'}
           minVersion={7}
           imageSettings={{
-            src: 'https://www.seedchurchbkk.org/SEED_CHURCH_LOGO_3.png',
+            src: './qr-code-seed/SEED_CHURCH_LOGO_3.png',
             x: undefined,
             y: undefined,
             height: 140,
