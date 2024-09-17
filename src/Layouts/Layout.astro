@@ -4,11 +4,11 @@ interface Props {
 }
 
 const { title } = Astro.props
-const baseUrl = new URL(Astro.site || '', Astro.url);
-const isProduction = import.meta.env.PROD;
-const basePath = isProduction ? '/GiftFromGod' : ''; // Use base path in production, empty in development
-const faviconUrl = new URL(`${basePath}/SEED_CHURCH_LOGO.png`, baseUrl);
-const ogImageUrl = new URL(`${basePath}/SEED_CHURCH_LOGO.png`, baseUrl);
+const baseUrl = new URL(Astro.site || '', Astro.url)
+const isProduction = import.meta.env.PROD
+const basePath = isProduction ? '/GiftFromGod' : '' // Use base path in production, empty in development
+const faviconUrl = new URL(`${basePath}/SEED_CHURCH_LOGO.png`, baseUrl)
+const ogImageUrl = new URL(`${basePath}/SEED_CHURCH_LOGO.png`, baseUrl)
 ---
 
 <html>
@@ -27,21 +27,46 @@ const ogImageUrl = new URL(`${basePath}/SEED_CHURCH_LOGO.png`, baseUrl);
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href={faviconUrl.href} />
-      <!-- Open Graph Meta Tags -->
-      <meta property="og:title" content="แบบสำรวจของประทาน" />
-      <meta property="og:description" content="แบบสำรวจของประทานที่พระเจ้าให้มา" />
-      <meta property="og:url" content="https://seedbkkchurch.github.io/GiftFromGod/" />
-      <meta property="og:type" content="website" />
-      <meta property="og:image" content={ogImageUrl.href} />
-      <meta property="og:site_name" content="แบบสำรวจของประทาน" />
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="แบบสำรวจของประทาน" />
+    <meta
+      property="og:description"
+      content="แบบสำรวจของประทานที่พระเจ้าให้มา"
+    />
+    <meta
+      property="og:url"
+      content="https://seedbkkchurch.github.io/GiftFromGod/"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImageUrl.href} />
+    <meta property="og:site_name" content="แบบสำรวจของประทาน" />
     <style>
       body {
         font-family: 'K2D', sans-serif;
       }
     </style>
-    </head>
+  </head>
 
   <body>
-    <slot />
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">/</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">QRCODESEED</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/general">QRCODE</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
   </body>
+  <slot />
 </html>

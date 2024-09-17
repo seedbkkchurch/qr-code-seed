@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react'
 import { QRCodeCanvas } from 'qrcode.react'
 
-export const QRCodeGenerator: React.FC = () => {
-  const [link, setLink] = useState('') // Default link
+export const QRCodeGeneratorSeed: React.FC = () => {
+  const [link, setLink] = useState('https://www.seedchurchbkk.org/') // Default link
   const [description, setDescription] = useState('') // State for description
   const canvasRef = useRef<HTMLDivElement>(null)
 
@@ -44,7 +44,7 @@ export const QRCodeGenerator: React.FC = () => {
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>QR Code Generator</h1>
+      <h1>QR Code Generator by คริสตจักรเมล็ดพันธ์ุ</h1>
       <input
         type="text"
         value={link}
@@ -73,6 +73,15 @@ export const QRCodeGenerator: React.FC = () => {
           fgColor={'#000000'}
           level={'L'}
           minVersion={7}
+          imageSettings={{
+            src: 'https://www.seedchurchbkk.org/SEED_CHURCH_LOGO_3.png',
+            x: undefined,
+            y: undefined,
+            height: 140,
+            width: 140,
+            opacity: 1,
+            excavate: true,
+          }}
         />
       </div>
       {description && <h1 style={{ color: 'red' }}>{description}</h1>}
